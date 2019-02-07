@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/bundle.js",
-    "build": "webpack --config webpack.server.js"
+    "start": "nodemon --watch build --exec node \"./build/bundle.js\"",
+    "build": "webpack --config webpack.server.js --watch"
   },
   "repository": {
     "type": "git",
