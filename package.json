@@ -1,0 +1,33 @@
+{
+  "name": "my-react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/bundle.js",
+    "build": "webpack --config webpack.server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaneyandyou/my-react-ssr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaneyandyou/my-react-ssr/issues"
+  },
+  "homepage": "https://github.com/chaneyandyou/my-react-ssr#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "express": "^4.16.4",
+    "react": "^16.7.0",
+    "react-dom": "^16.8.1",
+    "webpack": "^4.29.1",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
