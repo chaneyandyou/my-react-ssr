@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch build --exec node \"./build/bundle.js\"",
-    "build": "webpack --config webpack.server.js --watch"
+    "dev": "npm-run-all --parallel dev:**",
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\"",
+    "dev:build": "webpack --config webpack.server.js --watch"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,11 @@
     "babel-preset-stage-0": "^6.24.1",
     "express": "^4.16.4",
     "react": "^16.7.0",
-    "react-dom": "^16.8.1",
+    "react-dom": "^16.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5",
     "webpack": "^4.29.1",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"
