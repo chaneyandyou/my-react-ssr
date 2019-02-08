@@ -1,9 +1,11 @@
 import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import Home from './containers/Home/index'
+import Home from '../containers/Home/index'
 const app = express()
 const content = renderToString(<Home />)
+
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   res.send(`
@@ -16,7 +18,8 @@ app.get('/', (req, res) => {
       <title>react ssr</title>
     </head>
     <body>
-        ${content}
+        <div id="root">${content}</div>
+        <script src='/index.js'></script
     </body>
     </html>
   `)
