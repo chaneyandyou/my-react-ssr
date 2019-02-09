@@ -1,14 +1,28 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
-import Routes from '../Routes'
+import { StaticRouter, Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-export const render = (req) => {
+
+
+export const render = (store, routes, req) => {
+  console.log('store---------')
+  console.log(store)
+  console.log('store========')
   const content = renderToString((
-    <StaticRouter location={req.path} context={{}} >
-      { Routes }
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={req.path} context={{}}>
+        <Switch>
+          {
+            routes.map(route => (
+              <Route {...route} />
+            ))
+          }
+        </Switch>
+      </StaticRouter>
+    </Provider>
   ))
+
   return (
     `
       <!DOCTYPE html>
@@ -21,7 +35,7 @@ export const render = (req) => {
       </head>
       <body>
           <div id="root">${content}</div>
-          <script src='/index.js'></script
+          <script src='/index.js'></script>
       </body>
       </html>
     `
