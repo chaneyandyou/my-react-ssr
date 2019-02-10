@@ -1,6 +1,6 @@
 import express from 'express'
 import { render } from './utils'
-import getStore from '../store/index'
+import { getStore } from '../store/index'
 import { matchRoutes } from "react-router-config";
 import routes from '../Routes'
 
