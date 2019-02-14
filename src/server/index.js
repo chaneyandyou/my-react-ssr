@@ -1,7 +1,7 @@
 import express from 'express'
 import { render } from './utils'
 import { getStore } from '../store/index'
-import { matchRoutes } from "react-router-config";
+import { matchRoutes } from "react-router-config"
 import routes from '../Routes'
 
 const app = express()
@@ -27,4 +27,4 @@ app.get('*', (req, res) => {
 
 })
 
-const server = app.listen(3000);
+const server = app.listen(3000)
