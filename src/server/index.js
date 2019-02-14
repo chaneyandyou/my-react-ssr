@@ -3,10 +3,17 @@ import { render } from './utils'
 import { getStore } from '../store/index'
 import { matchRoutes } from "react-router-config"
 import routes from '../Routes'
+import proxy from 'express-http-proxy'
 
 const app = express()
-
+// https://cnodejs.org/api/v1/topics
 app.use(express.static('public'))
+
+app.use('/api/cnode', proxy('https://cnodejs.org', {
+  proxyReqPathResolver: function(req) {
+    return `/api${req.url}`
+  }
+}));
 
 app.get('*', (req, res) => {
   const store = getStore()

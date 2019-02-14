@@ -25,7 +25,7 @@ class Home extends Component {
       <div>
         Home component, this is { name }
         <Header />
-        { this.getListElement() }
+        { this.getListElement(false) }
       </div>
     )
   }
@@ -33,7 +33,7 @@ class Home extends Component {
 
 // 在服务器渲染之前，把这个路由需要的数据提前加载好
 Home.loadData = (store) => {
-  return store.dispatch(getHomeList())
+  return store.dispatch(getHomeList(true))
 }
 
 const mapStateToProps = state => ({
