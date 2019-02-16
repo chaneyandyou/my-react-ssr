@@ -24,7 +24,6 @@ class Home extends Component {
     return (
       <div>
         Home component, this is { name }
-        <Header />
         { this.getListElement() }
       </div>
     )
