@@ -1,7 +1,10 @@
 import axios from 'axios'
 
-const instance = axios.create({
-  baseURL: 'https://cnodejs.org'
+const createInstance = (req) =>  axios.create({
+  baseURL: 'https://cnodejs.org',
+  headers: {
+    cookie: req.get('cookie') || ''
+  }
 })
 
-export default instance
+export default createInstance

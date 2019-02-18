@@ -16,7 +16,7 @@ app.use('/api/cnode', proxy('https://cnodejs.org', {
 }));
 
 app.get('*', (req, res) => {
-  const store = getStore()
+  const store = getStore(req)
 
   // 根据match的路由组件，请求数据添加到store
   const matchedRoutes = matchRoutes(routes, req.path)
