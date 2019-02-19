@@ -24,12 +24,24 @@ app.get('*', (req, res) => {
   let promises = []
   matchedRoutes.forEach(item => {
     if (item.route.loadData) {
-      promises.push(item.route.loadData(store))
+      const newPromise =  new Promise((resolve, reject) => {
+        item.route.loadData(store).then(resolve).catch(resolve)
+      })
+      promises.push(newPromise)
     }
   })
 
   Promise.all(promises).then(() => {
-    res.send(render(store, routes, req))
+    const context = {}
+    const html = render(store, routes, req, context)
+    if (context.action === 'REPLACE') { // 服务端渲染路由staticRouter组件会在存在Redirect时，会注入相关信息
+      res.redirect(301, context.url)
+    } else if (context.NotFound) {
+      res.status(404)
+      res.send(html)
+    } else {
+      res.send(html)
+    }
   })
 
 })

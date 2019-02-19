@@ -2,6 +2,7 @@ import React from 'react'
 import App from './App'
 import Home from './containers/Home/index'
 import Login from './containers/Login/index'
+import NotFound from './containers/NotFound/index'
 
 export default [{
   path: '/',
@@ -19,6 +20,9 @@ export default [{
       component: Login,
       exact: true,
       key: 'login'
+    },
+    {
+      component: NotFound
     }
   ]
 }]
