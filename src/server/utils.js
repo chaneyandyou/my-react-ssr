@@ -16,6 +16,8 @@ export const render = (store, routes, req, context) => {
     </Provider>
   ))
 
+  const css = context.css.length ? context.css.join('\n') : ''
+
   return (
     `
       <!DOCTYPE html>
@@ -25,6 +27,7 @@ export const render = (store, routes, req, context) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>react ssr</title>
+        <style>${css}</style>
       </head>
       <body>
           <div id="root">${content}</div>

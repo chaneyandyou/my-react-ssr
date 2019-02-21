@@ -1,7 +1,6 @@
 import { CHANGE_LIST } from './constant'
 
 const initState = {
-  name: 'chaney',
   newsList: []
 }
 

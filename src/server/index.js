@@ -32,7 +32,7 @@ app.get('*', (req, res) => {
   })
 
   Promise.all(promises).then(() => {
-    const context = {}
+    const context = { css: [] }
     const html = render(store, routes, req, context)
     if (context.action === 'REPLACE') { // 服务端渲染路由staticRouter组件会在存在Redirect时，会注入相关信息
       res.redirect(301, context.url)
