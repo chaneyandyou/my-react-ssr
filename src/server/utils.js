@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server'
 import { StaticRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { renderRoutes } from 'react-router-config'
-
+import Helmet from 'react-helmet'
 
 export const render = (store, routes, req, context) => {
   const content = renderToString((
@@ -16,6 +16,8 @@ export const render = (store, routes, req, context) => {
     </Provider>
   ))
 
+  const helmet = Helmet.renderStatic();
+
   const css = context.css.length ? context.css.join('\n') : ''
 
   return (
@@ -23,6 +25,9 @@ export const render = (store, routes, req, context) => {
       <!DOCTYPE html>
       <html lang="en">
       <head>
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
+        ${helmet.link.toString()}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
