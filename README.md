@@ -1,6 +1,6 @@
 # my-react-ssr
 
-chaney学习React服务端渲染同构系列
+chaney学习React服务端渲染同构系列。
 
 > 公司项目还是推荐使用[next.js](https://nextjs.org/)，经过多年迭代，打造出React服务端渲染的最佳实践方案。本教程主要是通过从零搭建一个React服务端渲染同构项目，学习React服务端渲染应用需要注意的方方面面。
 
@@ -44,10 +44,10 @@ chaney学习React服务端渲染同构系列
 通过在返回给前端的渲染模板中的window注入相关数据，同时前端初始store时根据window相关数据给默认值。
 
 ## Step5:使用Node代理做中间层获取数据
-使用`express-http-proxy` 进行proxy代理项目前端的请求转发到真正接口服务器
+使用`express-http-proxy` 进行proxy代理项目前端的请求转发到真正接口服务器。
 
 ## Step6：支持多级路由
-更改路由配置，使用`react-router-config` 的`renderRoutes`进行多级路由渲染
+更改路由配置，使用`react-router-config` 的`renderRoutes`进行多级路由渲染。
 
 对于**react-router V4**版本：
 * `react-router`  React Router 核心
@@ -61,13 +61,13 @@ chaney学习React服务端渲染同构系列
 ## Step8: 处理样式
 由于`style-loader`处理时会使用`window`全局对象进行一些处理，但在服务端渲染的时候事实上是没有`window`对象的。<br />故针对服务端渲染的webpack配置中，使用`isomorphic-style-loader`来代替`style-loader` 。
 
-服务端渲染输出时，也需要对style进行处理，可在组件上利用`this.props.staticContext` 写入css，在服务端中context中获取并写入待返回的渲染模板中
+服务端渲染输出时，也需要对style进行处理，可在组件上利用`this.props.staticContext` 写入css，在服务端中context中获取并写入待返回的渲染模板中。
 
 ## Step9: 搜索引擎优化SEO
-使用`react-helmet` 进行搜索引擎优化<br />搜索引擎展示的标题就是页面的title <br />搜索引擎展示的描述就是页面的meta标签的description
+使用`react-helmet` 进行搜索引擎优化<br />搜索引擎展示的标题就是页面的title <br />搜索引擎展示的描述就是页面的meta标签的description。
 
 ## Last
-客户端渲染的项目想要提高seo，但又不想采用服务端渲染的流程，就可以尝试使用“预渲染技术”来达到目的<br />`prerender`帮助你实现
+客户端渲染的项目想要提高seo，但又不想采用服务端渲染的流程，就可以尝试使用“预渲染技术”来达到目的<br />`prerender`帮助你实现。
 
 预渲染的架构流程如图：
 
